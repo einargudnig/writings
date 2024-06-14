@@ -1,0 +1,14 @@
+---
+import Socials from "./Socials.astro"
+const time = new Date().getFullYear()
+---
+
+<footer class="flex justify-between">
+  <div>
+  <p>© {time} </p>
+  </div>
+  <div class="flex gap-2">
+  <Socials platform="twitter" username="einargudni" />
+  <Socials platform="github" username="einargudnig" />
+  </div>
+</footer>

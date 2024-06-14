@@ -1,4 +1,6 @@
 ---
+import Header from "./components/Header.astro";
+
 const pageTitle = 'About Me';
 
 const identity = {
@@ -16,9 +18,7 @@ const identity = {
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Header />
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
