@@ -1,0 +1,33 @@
+---
+const pageTitle = 'About Me';
+
+const identity = {
+  name: 'Einar Gudni',
+  role: 'Web Developer',
+  location: 'Eeykjavik',
+  email: 'einargudnig@gmail.com',
+  hobbies: ['coding', 'crossfit', 'coffee', 'red wine', 'traveling'],
+}
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+    <h1>{pageTitle}</h1>
+    <h2>... and my new Astro site!</h2>
+
+    <p>My name is {identity.name}</p>
+    <p>My email is {identity.email}</p>
+    <p>I live in {identity.location}</p>
+    {identity.hobbies.length > 0 && (
+      <p>My hobbies are: {identity.hobbies.join(', ')}</p>
+    )}
+    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+  </body>
+</html>
