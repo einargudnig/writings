@@ -9,9 +9,7 @@ const { frontmatter } = Astro.props;
         <h1 class="font-bold text-3xl font-serif max-w-[650px]">
 				{frontmatter.title}
 			</h1>
-        <!-- <h1>{frontmatter.title}</h1>
-        <p>Published {frontmatter.pubDate.toString().slice(0,10)}</p> -->
-
+      
       <div class="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm max-w-[650px]">
 				<div class="bg-neutral-800 rounded-md px-2 py-1 tracking-tighter text-white">
 					{frontmatter.pubDate.toString().slice(0,10)}
