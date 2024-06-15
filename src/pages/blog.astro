@@ -1,19 +1,18 @@
 ---
-import Header from "./components/Header.astro";
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob("./posts/*.md");
 const pageTitle = "Blog";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-      <Header />
-		<h1>Blog page</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
+		<div class="flex items-center justify-between">
+			<div>
+				<h1>Blog page</h1>
+
+				
+        {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+			</div>
+		</div>
+	</section>
+</BaseLayout>

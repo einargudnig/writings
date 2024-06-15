@@ -1,0 +1,33 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+<section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
+	<div class="flex items-center justify-between">
+    <div>
+        <h1 class="font-bold text-3xl font-serif max-w-[650px]">
+				{frontmatter.title}
+			</h1>
+        <!-- <h1>{frontmatter.title}</h1>
+        <p>Published {frontmatter.pubDate.toString().slice(0,10)}</p> -->
+
+      <div class="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm max-w-[650px]">
+				<div class="bg-neutral-800 rounded-md px-2 py-1 tracking-tighter text-white">
+					{frontmatter.pubDate.toString().slice(0,10)}
+				</div>
+				<div class="h-[0.2em] bg-neutral-800 mx-2" />
+			</div>
+
+      
+      <slot />
+
+    <div class="mt-4">
+    {frontmatter.tags.map((tag: string) => (
+      <p class="py-1 px-2 rounded-lg border border-gray-900 max-w-36"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+    </div>
+  </div>
+</section>
+</BaseLayout>
