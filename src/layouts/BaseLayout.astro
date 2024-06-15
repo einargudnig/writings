@@ -1,4 +1,5 @@
 ---
+import '../../global.css';
 import Header from "../pages/components/Header.astro";
 import Footer from "../pages/components/Footer.astro";
 const pageTitle = "Home";
@@ -12,10 +13,12 @@ const pageTitle = "Home";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body>
+  <body class="antialiased mb-10 lg:mx-auto">
+    <main class="container relative mx-auto mt-8 overflow-auto print:p-12">
     <Header />
-    <h1>{pageTitle}</h1>
-    <Footer />
+
+    <slot />
     
+    </main>
   </body>
 </html>

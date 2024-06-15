@@ -1,8 +1,20 @@
 ---
-import Navigation from './Navigation.astro';
+
 ---
 <header>
-  <nav>
-    <Navigation />
-  </nav>
+  <nav class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
+    		<aside class="-ml-[8px] mb-16 tracking-tight">
+				<div class="lg:sticky lg:top-20">
+					<nav class="px-0 pb-0 fade scroll-pr-6" id="nav">
+						<div class="flex justify-between items-center">
+							<div class="flex items-center flex-row-reverse md:flex-row">
+								<div class="md:flex flex-row space-x-0 pr-1 hidden">
+                  <a href="/" class="flex align-middle relative py-1 px-2">home</a>
+                  <a href="einargudni.com" class="flex align-middle relative py-1 px-2">about</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </aside>
 </header>
