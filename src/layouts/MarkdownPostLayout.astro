@@ -20,9 +20,9 @@ const { frontmatter } = Astro.props;
       
       <slot />
 
-    <div class="mt-4">
+    <div class="mt-8 flex gap-2">
     {frontmatter.tags.map((tag: string) => (
-      <p class="py-1 px-2 rounded-lg border border-gray-900 max-w-36"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <p class="py-1 px-2 rounded-lg border border-gray-200 max-w-36"><a href={`/tags/${tag}`}>{tag}</a></p>
     ))}
   </div>
     </div>
