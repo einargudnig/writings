@@ -5,6 +5,14 @@ pubDate: 2022-10-01
 summary: I made a drink counter and a bingo for a friends trip to Oktoberfest
 tags: ['side-project']
 ---
+import { Image } from "astro:assets"
+import biggerbingo from "../../images/oktoberfest/biggerbingo.png"
+import counter from "../../images/oktoberfest/counter.png"
+import smallerbingo from "../../images/oktoberfest/smallerbingo.png"
+import confetti from "../../images/oktoberfest/confetti.png"
+import stack from "../../images/oktoberfest/stack.png"
+import oktoberfestFrame from "../../images/oktoberfest/oktoberfestFrame.png"
+
 
 # What?
 
@@ -14,14 +22,14 @@ However, I got the idea to build it late so I had to see what I could find to he
 
 <Image
 	alt={`oktoberfest logo`}
-	src={`/images/oktoberfest/oktoberfestFrame.png`}
+	src={oktoberfestFrame}
 	width={2084 / 2}
 	height={802 / 2}
 />
 
-# Stack
 
-<Image alt={`stack`} src={`/images/oktoberfest/stack.png`} width={2084 / 2} height={802 / 2} />
+# Stack
+<Image alt={`stack`} src={stack} width={2084 / 2} height={802 / 2} />
 
 ## NextJs + TailwindCSS
 
@@ -175,7 +183,7 @@ The logic is simply displaying the length for the array of a certain type in the
 We then use the onClick handler to use the `clickedButton(button.type)` to insert the new value into our database.
 What the `clickedButton` does is only using the `useInsertDrinkClicks` to insert a uuid and a type to the bottom of our table.
 
-<Image alt={`counter`} src={`/images/oktoberfest/counter.png`} width={2084 / 2} height={802 / 2} />
+<Image alt={`counter`} src={counter} width={2084 / 2} height={802 / 2} />
 
 # Bingo
 
@@ -192,7 +200,7 @@ We also added extra buttons where you could randomize your tiles again when you 
 
 <Image
 	alt={`smaller bingo`}
-	src={`/images/oktoberfest/smallerbingo.png`}
+	src={smallerbingo}
 	width={2084 / 2}
 	height={802 / 2}
 />
@@ -205,7 +213,7 @@ I forgot yo update the logic so a user could have bingo for every four diagonal 
 
 <Image
 	alt={`bigger bingo`}
-	src={`/images/oktoberfest/biggerbingo.png`}
+	src={biggerbingo}
 	width={2084 / 2}
 	height={802 / 2}
 />
@@ -224,7 +232,7 @@ I found this cool [npm package](https://www.npmjs.com/package/react-canvas-confe
 
 <Image
 	alt={`confetti`}
-	src={`/static/images/blog/oktoberfest/confetti.png`}
+	src={confetti}
 	width={2084 / 2}
 	height={802 / 2}
 />
