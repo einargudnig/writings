@@ -1,16 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+const allPosts = await Astro.glob('./posts/*.mdx');
 const pageTitle = "writings"
-
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
 		<div class="flex items-center justify-between">
 			<div>
-				<h1>Blog</h1>
+				<h1>Writing</h1>
 
-				<p>This is where I will post about my journey learning Astro.</p>
+				<p class="text-gray-600 dark:text-gray-400">A collection of thoughts, ideas, and experiences.</p>
+				  
+					<ul>
+    				{allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+  				</ul>
+
 			</div>
 		</div>
 	</section>

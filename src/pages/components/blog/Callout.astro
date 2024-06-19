@@ -1,0 +1,8 @@
+---
+const { emoji, text } = Astro.props
+---
+
+<div class="flex bg-neutral-900 border border-neutral-800 rounded-lg p-4 my-8">
+  <div class="flex items-start w-4 mr-4">{emoji}</div>
+  <div class="w-full italic">"{text}"</div>
+</div>
