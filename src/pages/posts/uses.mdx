@@ -1,34 +1,49 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: 'New /uses'
 pubDate: 2023-10-05
 summary: I gave my /uses page a little refresh
-tags: ['misc', 'webpage']
+tags: ['webpage', 'react-query', 'nextjs', 'tanstack', 'kysely', 'planetscale']
 ---
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
+import InlineLink from "../components/blog/InlineLink.astro"
+import SubHeading from "../components/blog/SubHeading.astro"
+import Heading from "../components/blog/Heading.astro"
+import Callout from "../components/blog/Callout.astro"
+import { Code } from "astro:components"
 
-# /uses
+<MarkdownPostLayout frontmatter={frontmatter}>
 
-## EDIT!
+<Heading>
+ /uses
+</Heading>
 
-You might see that I have changed my uses page again, that was because I wanted to make my homepage simpler, remove the extra code.
-I'll leave this post here if someone wants to see how I did it before. I plan on doing something similar in the future, but in a different way!
+<SubHeading>
+EDIT!
+</SubHeading>
 
-I recently made my [/uses](/uses) page a little more useful. I've been meaning to do this for a while, but I finally got around to it.
+<p class=" mb-3 text-xs">You might see that I have changed my uses page again, that was because I wanted to make my homepage simpler, remove the extra code.
+I'll leave this post here if someone wants to see how I did it before.</p>
 
-I did not do too much but I added an option for you guys to 'play'.
 
-I encourage you to press the 'I use this!' button on the tools you use.
 
-It sends a request to my [database](https://planetscale.com/) and increment the count of people using this tool.
-I used [tanstack query](https://tanstack.com/query/v4/docs/react/overview) to do this.
+<p class="mt-3">I recently made my /uses page a little more useful. I've been meaning to do this for a while, but I finally got around to it.</p>
 
-## react-query + nextjs app directory
+<p class="mt-2">I did not do too much but I added an option for you guys to 'play'.</p>
 
-I am not completely sure if this is the way to set it up with the new `app directory`, but it works. So we'll go with it 🤷🏼‍♂️
+<p class="mt-2">I encourage you to press the 'I use this!' button on the tools you use.</p>
 
-Since my top level `layout.tsx` is a server component I exported the `QueryClientProvider` from a client component.
+<p class="mt-2">It sends a request to my [database](https://planetscale.com/) and increment the count of people using this tool.</p>
+<p class="mt-2">I used [tanstack query](https://tanstack.com/query/v4/docs/react/overview) to do this.</p>
 
-```jsx
+<SubHeading>
+	react-query + nextjs app directory
+</SubHeading>
+
+<p>I am not completely sure if this is the way to set it up with the new `app directory`, but it works. So we'll go with it 🤷🏼‍♂️</p>
+
+<p class="mt-2">Since my top level `layout.tsx` is a server component I exported the `QueryClientProvider` from a client component.</p>
+
+<Code lang="tsx" code={`
 'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -38,13 +53,13 @@ const queryClient = new QueryClient();
 export function ReactQueryProvider({ children }: { children: React.ReactNode }) {
 	return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }
-```
+`}theme="catppuccin-mocha" class="my-4 p-2 rounded-md" />
 
-Simple as that!
+<p>Simple as that!</p>
 
-This was then imported into my `layout.tsx` file, which is a server component. Hence the need to make the other one a client component.
+<p class="mt-2">This was then imported into my `layout.tsx` file, which is a server component. Hence the need to make the other one a client component.</p>
 
-```tsx
+<Code lang="tsx" code={`
 import './globals.css';
 import clsx from 'clsx';
 import { Metadata } from 'next';
@@ -96,25 +111,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		</ReactQueryProvider> <!-- 📢 -->
 	);
 }
-```
+`} theme="catppuccin-mocha" class="my-4 p-2 rounded-md" />
 
-Now that I had added the provider I could use the `useMutation` and `useQuery' hooks from `@tanstackreact-query`to send requests to my database.
+<p>Now that I had added the provider I could use the `useMutation` and `useQuery' hooks from `@tanstackreact-query`to send requests to my database.</p>
 
-<Callout emoji="💡">
+<Callout emoji="💡" text="But remember I cannot use hooks in server components, so I had to use the`useClient` hook to be able to use these hooks." />
 
-_But remember I cannot use hooks in server components, so I had to use the`useClient` hook to be able to use these hooks._
+<SubHeading>
+  Counter
+</SubHeading>
 
-</Callout>
+<p>The component that I use to increment the count is a simple component that increses the count of the type (hardware/software).</p>
 
-## Counter
+<p class="mt-2">We have probalby done these counters many times, this one is just a little bit different, it sends the increased valuet o the databse, and then revalidates the data.</p>
 
-The component that I use to increment the count is a simple component that increses the count of the type (hardware/software).
+<p class="mt-2">So here is the client component that I use to send the requests, it really is a simple counter.</p>
 
-We have probalby done these counters many times, this one is just a little bit different, it sends the increased valuet o the databse, and then revalidates the data.
-
-So here is the client component that I use to send the requests, it really is a simple counter.
-
-```tsx
+<Code lang="tsx" code={`
 'use client';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -131,7 +144,7 @@ async function fetchUses(): Promise<UsesView[]> {
 }
 
 async function incrementView(type: string) {
-	await fetch(`/api/uses/${type}`, {
+	await fetch('/api/uses/type', {
 		method: 'POST'
 	});
 }
@@ -171,7 +184,7 @@ export default function UsesCounter({ type }: { type: string }) {
 	return (
 		<div className="flex flex-row-reverse justify-between items-center">
 			<div className="font-mono text-md text-neutral-500 tracking-tighter">
-				{isLoading ? 'Loading..' : data ? `${views.toLocaleString()} uses` : ' ​'}
+				{isLoading ? 'Loading..' : data ? '{views.toLocaleString()} uses' : ' ​'}
 			</div>
 			<Button className="mx-3" variant="secondary" onClick={handleClick}>
 				I use this!
@@ -179,18 +192,16 @@ export default function UsesCounter({ type }: { type: string }) {
 		</div>
 	);
 }
-```
+`} theme="catppuccin-mocha" class="my-4 p-2 rounded-md" />
 
-This is a simple component that fetches the data from my database and then increments the count when the button is clicked.
-I'm trying out optimistic updates with tanstack query, and it seems to work well.
+<p>This is a simple component that fetches the data from my database and then increments the count when the button is clicked.</p>
+<p class="mt-2">I'm trying out optimistic updates with tanstack query, and it seems to work well.</p>
 
-This is of course just one part of the puzzle. I also need to build an api route.
-I use [kisely](https://github.com/depot/kysely-planetscale) to connect to my database and build queries.
-[Kysely](https://kysely.dev/) is a typescript first query builder for MySQL and PostgreSQL.
+<p>This is of course just one part of the puzzle. I also need to build an api route.</p>
+<p class="mt-2">I use [kisely](https://github.com/depot/kysely-planetscale) to connect to my database and build queries.
+[Kysely](https://kysely.dev/) is a typescript first query builder for MySQL and PostgreSQL.</p>
 
-I will not add the planetscale code here, since I don't want this to be too code heavy. I will write a post later to show how I connect to my database and how I set it up.
-If you need more help to set this up, feel free to reach out to me on [twitter](https://twitter.com/einargudnig).
+<p class="mt-2">I will not add the planetscale code here, since I don't want this to be too code heavy. I will write a post later to show how I connect to my database and how I set it up.</p>
+<p>If you need more help to set this up, feel free to reach out to me on [twitter](https://twitter.com/einargudnig).</p>
 
-I plan on adding a little 'I use this' section on the bottom of the page, so you can add your own tools if they are not a part of my list. This will hopefully introduce my to new and exciting tools and software to use.
-Stay tuned for that, I look forward to see what tools you guys use 😈
-
+</MarkdownPostLayout>

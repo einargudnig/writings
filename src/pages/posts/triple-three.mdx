@@ -1,22 +1,27 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Triple three'
 pubDate: 2024-02-03
 summary: Subscribe to my monthly highlights
-tags: ['newsletter']
+tags: ['newsletter', 'remix', 'resend']
 ---
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
+import InlineLink from "../components/blog/InlineLink.astro"
 
-Recently I built a [learnings page](https://remix-workbook.fly.dev/).
+<MarkdownPostLayout frontmatter={frontmatter}>
 
-It’s based on [Build-UI Remix course](https://buildui.com/courses/ship-an-app-with-remix). As you can see I have made some minimal updates to it.
+<p>I Recently  built a <InlineLink href="https://remix-workbook.fly.dev/">learnings page</InlineLink>.</p>
 
-Here I will curate interesting things, things I do at work and things I learn.
-_This could be whatever I find interesting, doesn’t need to be software related._
+<p class="my-2">It’s based on <InlineLink href="https://buildui.com/courses/ship-an-app-with-remix">Build-UI Remix course</InlineLink>.</p>
 
-The plan is to send out monthly highlights where I share three things from each category, hence the triple three name
+<p>Here I will curate interesting things, things I do at work and things I learn.
+_This could be whatever I find interesting, doesn’t need to be software related._</p>
 
-I set up a small email service using Resend so you can subscribe to these highlights
+<p class="mt-2">The plan is to send out monthly highlights where I share three things from each category, hence the triple three name</p>
 
-This email will contain three items from each category, so nine items in total, I’ll give some more context for these items, if needed.
+<p class="mt-2">I set up a small email service using Resend so you can subscribe to these highlights</p>
 
-Feel free to subscribe 🤗
+<p class="mt-2">This email will contain three items from each category, so nine items in total, I’ll give some more context for these items, if needed.</p>
+
+<p class="mt-4 font-semibold">Feel free to subscribe 🤗</p>
+
+</MarkdownPostLayout>
