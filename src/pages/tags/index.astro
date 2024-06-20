@@ -8,10 +8,10 @@ const pageTitle = "tags";
 <BaseLayout pageTitle={pageTitle}>
   <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
 		<div class="flex items-center justify-between">
-			<div>
-				<div>
+			<div class="w-full">
+				<div class="w-full grid grid-cols-4 gap-2">
           {tags.map((tag) => (
-            <p><a href={`/tags/${tag}`}>{tag}</a></p>
+						<p class="py-1 px-2 rounded-lg border border-gray-200 hover:border-gray-500 max-w-36"><a href={`/tags/${tag}`}>{tag}</a></p>
           ))}
         </div>
 			</div>

@@ -15,6 +15,9 @@ export async function getStaticPaths() {
 });
 }
 
+// const alphabeticalSort = (a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
+// const sortedPosts = posts.sort(alphabeticalSort);
+
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 
@@ -22,12 +25,32 @@ const { posts } = Astro.props;
 <BaseLayout pageTitle={tag}>
   <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
 		<div class="flex items-center justify-between">
-			<div>
-        <p>Posts tagged with {tag}</p>
+			<div class="w-full">
+        <div class="flex gap-2 mb-6">
+          <p class="text-3xl">Posts tagged with:</p> <p class="text-3xl italic">{tag}</p>
+        </div>
+        <div class="w-full">
         <ul>
-          <!-- {filteredPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
-          {posts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+          <!-- {posts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
+
+          	{posts.reverse().map((post) => 
+							<li class="flex flex-col space-y-1 mb-4 px-2 rounded-md">
+								<a href={post.url}>
+									<div class="w-full flex flex-row justify-between items-center ">
+										<div>
+											<p class="text-lg">{post.frontmatter.title}</p>
+											
+										</div>
+										<p class="font-mono text-sm text-neutral-500 tracking-tighter">
+											{post.frontmatter.pubDate.toString().slice(0,10)}
+										</p>
+									</div>
+								</a>
+							</li>
+							)}
+
         </ul>
+        </div>
       </div>
     </div>
   </section>        

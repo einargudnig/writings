@@ -1,21 +1,39 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+
 const allPosts = await Astro.glob('./posts/*.mdx');
+const alphabeticalSort = (a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
+const sortedPosts = allPosts.sort(alphabeticalSort);
 const pageTitle = "writings"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
 		<div class="flex items-center justify-between">
-			<div>
-				<h1>Writing</h1>
+			<div class="w-full">
+				<p class="text-5xl">Writing</p>
 
-				<p class="text-gray-600 dark:text-gray-400">A collection of thoughts, ideas, and experiences.</p>
-				  
+				<p class="text-gray-500/90 mb-8 mt-2 text-lg">A collection of thoughts, ideas, and experiences.</p>
+				
+				<div class="w-full">
 					<ul>
-    				{allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+    				{sortedPosts.reverse().map((post) => 
+							<li class="flex flex-col space-y-1 mb-4 px-2 rounded-md">
+								<a href={post.url}>
+									<div class="w-full flex flex-row justify-between items-center ">
+										<div>
+											<p class="text-lg">{post.frontmatter.title}</p>
+											
+										</div>
+										<p class="font-mono text-sm text-neutral-500 tracking-tighter">
+											{post.frontmatter.pubDate.toString().slice(0,10)}
+										</p>
+									</div>
+								</a>
+							</li>
+							)}
   				</ul>
-
+				</div>
 			</div>
 		</div>
 	</section>
