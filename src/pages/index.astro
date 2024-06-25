@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 const allPosts = await Astro.glob('./posts/*.mdx');
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const alphabeticalSort = (a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
 const sortedPosts = allPosts.sort(alphabeticalSort);
 const pageTitle = "writings"

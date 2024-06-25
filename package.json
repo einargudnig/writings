@@ -22,6 +22,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.2",
     "@tailwindcss/typography": "^0.5.13",
     "postcss-apply": "^0.12.0"
   }
