@@ -129,7 +129,8 @@ export async function GET({ props }: Props) {
 // to generate an image for each blog posts in a collection
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
-  return blogPosts.map((post) => ({
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  return blogPosts.map((post: { slug: any; }) => ({
     params: { slug: post.slug },
     props: { post },
   }));
