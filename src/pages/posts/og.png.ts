@@ -12,10 +12,10 @@ export async function GET({ props }: Props) {
   const { post } = props;
  
   // using custom font files
-  const DmSansBold = fs.readFileSync(path.resolve('./fonts/DMSans-Bold.ttf'));
-  const DmSansReqular = fs.readFileSync(
-    path.resolve('./fonts/DMSans-Regular.ttf'),
-  );
+  const Geist = fs.readFileSync(path.resolve('./fonts/Geist-Black.ttf'));
+  // const DmSansReqular = fs.readFileSync(
+  //   path.resolve('./fonts/DMSans-Regular.ttf'),
+  // );
  
   // post cover with Image is pretty tricky for dev and build phase
   const postCover = fs.readFileSync(
@@ -113,13 +113,8 @@ export async function GET({ props }: Props) {
     height: 600,
     fonts: [
       {
-        name: 'DM Sans Bold',
-        data: DmSansBold.buffer,
-        style: 'normal',
-      },
-      {
-        name: 'DM Sans Regular',
-        data: DmSansReqular.buffer,
+        name: 'Geist Black',
+        data: Geist.buffer,
         style: 'normal',
       },
     ],
