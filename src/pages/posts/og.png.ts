@@ -12,7 +12,7 @@ export async function GET({ props }: Props) {
   const { post } = props;
  
   // using custom font files
-  const Geist = fs.readFileSync(path.resolve('./fonts/Geist-Black.ttf'));
+  const Geist = fs.readFileSync(path.resolve('./fonts/geist-black.ttf'));
   // const DmSansReqular = fs.readFileSync(
   //   path.resolve('./fonts/DMSans-Regular.ttf'),
   // );
@@ -124,6 +124,7 @@ export async function GET({ props }: Props) {
 // to generate an image for each blog posts in a collection
 export async function getStaticPaths() {
   const blogPosts = await getCollection('blog');
+  console.log({ blogPosts })
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   return blogPosts.map((post: { slug: any; }) => ({
     params: { slug: post.slug },
