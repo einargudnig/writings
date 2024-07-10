@@ -19,12 +19,37 @@ import InlineLink from "../components/blog/InlineLink.astro"
 <p class="mt-4">I got the design from a designer ina figma file and got to work.</p>
 <p>The old page was written in Next.js and used styled components. The first step was to update packages adnv versions.</p>
 
-<p>I wanted to update the project and use Chakra-UI, since the system is using that ui library. And I think it's goos to have it be the same in both projects.</p>
+<p>I wanted to update the project and use Chakra-UI, since the system is using that ui library. And I think it's good to have it be the same in both projects.</p>
 
+</div>
 
+<div class="mt-4">
+  <p>My first instinct was to rewrite it from scratch. It's wasy, it's fun, and who doesn't like starting a new shiny project. No old code, no need to refactor, no need to updated packages, APIs or anything!</p>
+
+  <p class="mt-2">This is still a double-edged sword. The old webpage had been in produciton since mid 2021 and to my best knowledge never had any problems.</p>
+
+  <p class="mt-2">The old version of the homepage used <InlineLink href="https://styled-components.com/">styled component</InlineLink> but most of the system it self uses <InlineLink href="https://v2.chakra-ui.com/">Chakra-UI</InlineLink></p>
+  <p class="mt-2">I wanted to make the styling consistent between projects. It's easier and quicker to jump between projects when it uses the same technique.</p>
+
+  <p class="mt-2">One drawback is that Chakra-UI doesn't wokr well with Next.js</p>.
+  <p class="mt-2">Chakra does not work with server components so instead of using Next.js only with client component I decied to use <InlineLink href="https://vitejs.dev/">vite</InlineLink> and react.</p>
+
+  <p class="mt-2">Since vite + react don't have built in routing like the app router in Next.js I had to add in some routing capability.</p>
+  <p class="mt-2">I wanted to test <InlineLink href="https://tanstack.com/router/latest">tanstack-router</InlineLink> but refrained against it after some thought. I wanted something well known, easy to use, and something that had been around and will be around.</p>
+  <p class="mt-2">I chose <InlineLink href="https://reactrouter.com/en/main/start/overview">react-router</InlineLink> and created a simple easy to use router.</p>
+</div>
+
+<div class="mt-4">
+
+  <p>I had do some extra steps to make the react vite project performed similar for SEO. Since a big reason for why I wanted to use Nextjs was improved SEO</p>
+  <p>I added <InlineLink href="https://github.com/stereobooster/react-snap">react-snap</InlineLink> to pre-render the SPA</p>
+  <p></p>
+  <p></p>
 
 
 </div>
 
-
 </MarkdownPostLayout>
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
+import InlineLink from "../components/blog/InlineLink.astro"
+
