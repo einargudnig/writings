@@ -1,25 +1,26 @@
 ---
-title: 'Gigover '
+title: 'Gigover landing page'
 pubDate: 2024-06-28
 description: 'Rebuilding the Gigover landing page'
 author: 'Einar Gudni'
-tags: ["rebuilding", 'react', 'chakra-ui']
+tags: ['react', 'chakra-ui']
 ---
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
 import InlineLink from "../components/blog/InlineLink.astro"
+import Callout from "../components/blog/Callout.astro"
 
 <MarkdownPostLayout frontmatter={frontmatter}>
 
 <div class="mb-4">
-<p>Last month I finished rebuilding the <InlineLink href="https://gigover.com/">Gigover</InlineLink> landing page.</p>
+  <p>Last month I finished rebuilding the <InlineLink href="https://gigover.com/">Gigover</InlineLink> landing page.</p>
 
-<p class="mt-3">Like with most projects there comes a time when it needs to be updated.</p>
-<p>I have worked as a free-lance developer for Gigover for a year and and a half and most spent most time on the system, so now it was time to give the ladning page some well-deserved love.</p>
+  <p class="mt-3">Like with most projects there comes a time when it needs to be updated.</p>
+  <p>I have worked as a free-lance developer for Gigover for a year and and a half and most spent most time on the system, so now it was time to give the ladning page some well-deserved love.</p>
 
-<p class="mt-4">I got the design from a designer ina figma file and got to work.</p>
-<p>The old page was written in Next.js and used styled components. The first step was to update packages adnv versions.</p>
+  <p class="mt-4">I got the design from a designer in a figma file and got to work.</p>
+  <p>The old page was written in Next.js and used styled components. The first step was to update packages adnv versions.</p>
 
-<p>I wanted to update the project and use Chakra-UI, since the system is using that ui library. And I think it's good to have it be the same in both projects.</p>
+  <p>I wanted to update the project and use Chakra-UI, since the system is using that ui library. And I think it's good to have it be the same in both projects.</p>
 
 </div>
 
@@ -31,7 +32,7 @@ import InlineLink from "../components/blog/InlineLink.astro"
   <p class="mt-2">The old version of the homepage used <InlineLink href="https://styled-components.com/">styled component</InlineLink> but most of the system it self uses <InlineLink href="https://v2.chakra-ui.com/">Chakra-UI</InlineLink></p>
   <p class="mt-2">I wanted to make the styling consistent between projects. It's easier and quicker to jump between projects when it uses the same technique.</p>
 
-  <p class="mt-2">One drawback is that Chakra-UI doesn't wokr well with Next.js</p>.
+  <p class="mt-2">One drawback is that Chakra-UI doesn't wokr well with Next.js</p>
   <p class="mt-2">Chakra does not work with server components so instead of using Next.js only with client component I decied to use <InlineLink href="https://vitejs.dev/">vite</InlineLink> and react.</p>
 
   <p class="mt-2">Since vite + react don't have built in routing like the app router in Next.js I had to add in some routing capability.</p>
@@ -42,14 +43,15 @@ import InlineLink from "../components/blog/InlineLink.astro"
 <div class="mt-4">
 
   <p>I had do some extra steps to make the react vite project performed similar for SEO. Since a big reason for why I wanted to use Nextjs was improved SEO</p>
-  <p>I added <InlineLink href="https://github.com/stereobooster/react-snap">react-snap</InlineLink> to pre-render the SPA</p>
-  <p></p>
-  <p></p>
+  <p>I added <InlineLink href="https://github.com/stereobooster/react-snap">react-snap</InlineLink> to pre-render the SPA and help with SEO.</p>
+  
+  <p>The new webpage looks well with the new design.</p>
 
+  <Callout emoji="📢" text="It's harder to read code than write it. So it was easier to start a new project rather than updating a project that has not been updated in two years." />
+
+  <p>I advise you to think twice before you decide to start a new project from scratch. At least take things into consideration</p>
 
 </div>
 
 </MarkdownPostLayout>
-import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
-import InlineLink from "../components/blog/InlineLink.astro"
 
