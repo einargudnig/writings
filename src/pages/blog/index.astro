@@ -1,0 +1,19 @@
+---
+type InferGetStaticPropsTypeastro
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => {
+    return {
+      params: {
+        post: post.slug,
+      },
+      props: post,
+    };
+  });
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const post = Astro.props;
+const { Content, headings } = await post.render();
+---
