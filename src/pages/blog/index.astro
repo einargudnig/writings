@@ -1,9 +1,13 @@
 ---
-type InferGetStaticPropsTypeastro
+import type { InferGetStaticPropsType } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-export async function getStaticPaths() {
+
+export async function getStaticProps() {
   const posts = await getCollection("blog");
-  return posts.map((post) => {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  return posts.map((post: any) => {
     return {
       params: {
         post: post.slug,
@@ -17,3 +21,6 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const post = Astro.props;
 const { Content, headings } = await post.render();
 ---
+
+<BaseLayout >
+</BaseLayout>
