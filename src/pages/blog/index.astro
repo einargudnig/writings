@@ -1,26 +1,30 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 
-export async function getStaticProps() {
-  const posts = await getCollection("blog");
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  return posts.map((post: any) => {
-    return {
-      params: {
-        post: post.slug,
-      },
-      props: post,
-    };
-  });
-}
-
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const post = Astro.props;
-const { Content, headings } = await post.render();
+const blogPosts = await getCollection("blog")
+blogPosts.sort((a, b) => {
+	return (
+		new Date(b.data.publishDate).getTime() -
+		new Date(a.data.publishDate).getTime()
+	);
+})
 ---
 
 <BaseLayout >
+  <main class="wrapper mt-20">
+    <header>
+      <div class="flex flex-row justify-start md:justify-center overflow-auto py-1 space-x-2 my-2">
+          {
+            tags.map((tag) => {
+              return (
+                <PostTag tag={tag} />
+              );
+            })
+          }
+        </div>
+    </header>
+    <PostList />
+  </main>
 </BaseLayout>

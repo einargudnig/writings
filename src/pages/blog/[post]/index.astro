@@ -1,0 +1,39 @@
+---
+import type { InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+import MarkdownPostLayout from '../../../layouts/MarkdownPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => {
+    return {
+      params: {
+        post: post.slug,
+      },
+      props: post,
+    }
+  })
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+const post = Astro.props;
+const { Content, headings } = await post.render();
+--
+<MarkdownPostLayout>
+<main>
+  <article>
+    <div class="mx-auto card w-full max-w-screen-lg">
+        <div class="md:px-8">
+          <h1 class="font-extrabold text-gray-100 my-6 text-4xl md:text-4xl xl:text-5xl">
+            {post.data.title}
+          </h1>
+        </div>
+        <div class="md-content md:px-8">
+          <Content />
+        </div>
+      </div>
+  </article>
+</main>
+
+
+</MarkdownPostLayout>
