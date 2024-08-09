@@ -1,10 +1,35 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { ValidTags } from "../utils/blogTags";
+	
+	
+type Props = {
+  tag?: ValidTags
+  limit?: number
+}
+const { tag, limit } = Astro.props
 
-const allPosts = await Astro.glob('./posts/*.mdx');
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const alphabeticalSort = (a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
-const sortedPosts = allPosts.sort(alphabeticalSort);
+// Retrieve blog posts and sort by publish date
+const blogPosts = await getCollection("blog");
+blogPosts.sort((a, b) => {
+  return new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime();
+});
+
+// Hold filtered blog posts
+let blogPostResults: typeof blogPosts = blogPosts;
+
+// Filter blog posts by tag
+if (tag) {
+  blogPostResults = blogPosts.filter((post) => {
+    return post.data.tags.includes(tag);
+  });
+}
+
+// Filter blog posts by limit
+if (limit) {
+  blogPostResults = blogPostResults.slice(0, limit);
+}
 const pageTitle = "writings"
 ---
 
@@ -18,16 +43,16 @@ const pageTitle = "writings"
 				
 				<div class="w-full">
 					<ul>
-    				{sortedPosts.reverse().map((post) => 
+    				{blogPostResults.map((post) => 
 							<li class="flex flex-col space-y-1 mb-4 px-2 rounded-md">
-								<a href={post.url}>
+								<a href={`/blog/${post.slug}`}>
 									<div class="w-full flex flex-row justify-between items-center ">
 										<div>
-											<p class="text-lg">{post.frontmatter.title}</p>
+											<p class="text-lg">{post.data.title}</p>
 											
 										</div>
 										<p class="font-mono text-sm text-neutral-500 tracking-tighter">
-											{post.frontmatter.pubDate.toString().slice(0,10)}
+											{post.data.publishDate.toString().slice(0,10)}
 										</p>
 									</div>
 								</a>

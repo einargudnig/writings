@@ -9,9 +9,9 @@ const blogCollection = defineCollection({
         message: "Title must be less than 60 characters long!",
       }),
       description: z.string().refine(
-        (desc) => desc.length >= 125 && desc.length <= 160,
+        (desc) => desc.length >= 25 && desc.length <= 160,
         (desc) => ({
-          message: `Description must be between 125 and 160 characters long! Currently ${desc.length} characters long.`,
+          message: `Description must be between 25 and 160 characters long! Currently ${desc.length} characters long.`,
         }),
       ),
       publishDate: z.string().transform((str) => new Date(str)),

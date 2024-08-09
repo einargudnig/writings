@@ -1,26 +1,23 @@
 ---
+import type { InferGetStaticPropsType } from "astro";
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { tags } from "../../utils/blogTags";
+import PostTag from '../components/blog/PostTag.astro';
+
 
 export async function getStaticPaths() {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  const allPosts: any[] = await Astro.glob('../posts/*.mdx');
-
-  const uniqueTags = [...new Set(allPosts.flatMap((post) => post.frontmatter.tags))];
-  
-  return uniqueTags.map((tag) => {
-  const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+  console.log(tags)
+  return tags.map((tag) => {
     return {
-      params: { tag },
-      props: { posts: filteredPosts },
+      params: {
+        tag: tag,
+      },
+      props: { tag: tag }
     };
-});
+  });
 }
-
-// const alphabeticalSort = (a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
-// const sortedPosts = posts.sort(alphabeticalSort);
-
-const { tag } = Astro.params;
-const { posts } = Astro.props;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const {tag} = Astro.props;
 
 ---
 <BaseLayout pageTitle={tag}>
@@ -31,26 +28,11 @@ const { posts } = Astro.props;
           <p class="text-3xl">Posts tagged with:</p> <p class="text-3xl italic">{tag}</p>
         </div>
         <div class="w-full">
-        <ul>
-          <!-- {posts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)} -->
-
-          	{posts.reverse().map((post) => 
-							<li class="flex flex-col space-y-1 mb-4 px-2 rounded-md">
-								<a href={post.url}>
-									<div class="w-full flex flex-row justify-between items-center ">
-										<div>
-											<p class="text-lg">{post.frontmatter.title}</p>
-											
-										</div>
-										<p class="font-mono text-sm text-neutral-500 tracking-tighter">
-											{post.frontmatter.pubDate.toString().slice(0,10)}
-										</p>
-									</div>
-								</a>
-							</li>
-							)}
-
-        </ul>
+        {
+          tags.map((t) => {
+            return <PostTag tag={t} />;
+          })
+        }
         </div>
       </div>
     </div>

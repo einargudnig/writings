@@ -1,14 +1,13 @@
 ---
 title: 'Building a new system in Obsidian'
-pubDate: 2023-01-28
-summary: My new Obsidian system
-tags: ['obsidian']
+publishDate: "2023-01-28"
+description: My new Obsidian system has a lot of moving parts, here you can see the structure of it
+tags: ['nerd']
 ---
-import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
-import InlineLink from "../components/blog/InlineLink.astro"
-import SubHeading from "../components/blog/SubHeading.astro"
-import Heading from "../components/blog/Heading.astro"
-import Callout from "../components/blog/Callout.astro"
+import InlineLink from "../../pages/components/blog/InlineLink.astro"
+import SubHeading from "../../pages/components/blog/SubHeading.astro"
+import Heading from "../../pages/components/blog/Heading.astro"
+import Callout from "../../pages/components/blog/Callout.astro"
 import { Image } from "astro:assets"
 
 import graph from "../../images/obsidian/graph.png"
@@ -22,8 +21,6 @@ import weeklyNote from "../../images/obsidian/weekly-note.png"
 import technology from "../../images/obsidian/technology.png"
 import system from "../../images/obsidian/system.png"
 import projects from "../../images/obsidian/projects.png"
-
-<MarkdownPostLayout frontmatter={frontmatter}>
 
 <Heading>
 	Old Vault
@@ -457,5 +454,3 @@ If you have any questions, don't hesitate to ask.</p>
 <p class="mb-4">My blog posts are also written in markdown.</p>
 
 <InlineLink href="https://einargudni.gumroad.com/l/obsidian-cheatsheet">Here is a free cheat sheet with markdown basics and Obsidian keyboard shortcuts.</InlineLink>
-
-</MarkdownPostLayout>

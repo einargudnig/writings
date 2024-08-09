@@ -1,11 +1,10 @@
 ---
 title: 'Oktoberfest22'
-pubDate: 2022-10-01
-summary: I made a drink counter and a bingo for a friends trip to Oktoberfest
-tags: ['side-project', 'beer', 'typescript', 'supabase', 'react']
+publishDate: "2022-10-01"
+description: I made a drink counter and a bingo for a friends trip to Oktoberfest
+tags: ['nerd']
 ---
-import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro"
-import InlineLink from "../components/blog/InlineLink.astro"
+import InlineLink from "../../pages/components/blog/InlineLink.astro"
 import { Image } from "astro:assets"
 import { Code } from "astro:components"
 import biggerbingo from "../../images/oktoberfest/biggerbingo.png"
@@ -15,7 +14,6 @@ import confetti from "../../images/oktoberfest/confetti.png"
 import stack from "../../images/oktoberfest/stack.png"
 import oktoberfestFrame from "../../images/oktoberfest/oktoberfestFrame.png"
 
-<MarkdownPostLayout frontmatter={frontmatter}>
 
 <div class="mb-8">
 	<h2 class="text-xl font-semibold">What?</h2>
@@ -294,5 +292,3 @@ I recorded a snipped of google translate saying Prost and added it to a button o
 
 
 <p>The code here is not complete, so check it out in the [github repo](https://github.com/einargudnig/oktoberfest22) if you want to fork it and play around with it.</p>
-
-</MarkdownPostLayout>
