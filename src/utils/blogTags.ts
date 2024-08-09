@@ -1,15 +1,18 @@
 export const tags = [
-  "hardware",
-  "linux",
-  "coding",
-  "technology",
-  "gaming",
-  "nerd",
+  "coffee",
+  "frontend",
+  "backend",
+  "systems",
+  "hobby",
+  "typescript",
+  "raycast",
+  "software",
+  "learning",
+  "travel"
 ] as const;
 
 export type TagItem = {
   href: string;
-  color: string;
 };
 
 export type ValidTags = (typeof tags)[number];
@@ -19,28 +22,34 @@ type TagMap = {
 };
 
 export const tagMap: TagMap = {
-  hardware: {
-    href: "/blog/tags/hardware",
-    color: "green-400",
+  coffee: {
+    href: "/blog/tags/coffee",
   },
-  linux: {
-    href: "/blog/tags/linux",
-    color: "orange-400",
+  frontend: {
+    href: "/blog/tags/frontend",
   },
-  coding: {
-    href: "/blog/tags/coding",
-    color: "blue-400",
+  backend: {
+    href: "/blog/tags/backend",
   },
-  technology: {
-    href: "/blog/tags/technology",
-    color: "teal-400",
+  systems: {
+    href: "/blog/tags/systems",
   },
-  gaming: {
-    href: "/blog/tags/gaming",
-    color: "rose-400",
+  hobby: {
+    href: "/blog/tags/hobby",
   },
-  nerd: {
-    href: "/blog/tags/nerd",
-    color: "cyan-200",
+  typescript: {
+    href: "/blog/tags/typescript",
+  },
+  raycast: {
+    href: "/blog/tags/raycast",
+  },
+  software: {
+    href: "/blog/tags/software",
+  },
+  learning: {
+    href: "/blog/tags/learning",
+  },
+  travel: {
+    href: "/blog/tags/travel",
   },
 };
