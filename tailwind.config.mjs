@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme'
+// import defaultTheme from 'tailwindcss/defaultTheme'
 // import '@fontsource/geist-mono';
 // import '@fontsource/geist-sans';
 
