@@ -2,7 +2,7 @@ import type { APIRoute, InferGetStaticPropsType } from "astro";
 import { getCollection } from "astro:content";
 import matter from "gray-matter";
 import fs from "node:fs/promises";
-import { PNG } from "../../components/og/createImage";
+import { PNG } from "../../components/og/create-image";
 import OG from "../../components/og/og";
 
 export async function getStaticPaths() {
