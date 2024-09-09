@@ -10,7 +10,7 @@
     "astro": "astro",
     "build-setup": "npm run serve-assets & npm run wait-for-assets",
     "serve-assets": "serve -p 3001 --no-port-switching ./src/images",
-    "wait-for-assets": "wait-on -t 5000 http://localhost:3001/opengraph/background.png",
+    "wait-for-assets": "wait-on -t 5000 http://localhost:3001/opengraph/og.png",
     "kill-assets": "kill-port 3001 || true"
   },
   "dependencies": {
