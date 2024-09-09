@@ -8,7 +8,7 @@ export default function OG(
   heroImageURL: string,
 ) {
   const basePath = "http://localhost:3001/"
-  const backgroundImageURL = `${basePath}opengraph/background.png`;
+  const backgroundImageURL = `${basePath}opengraph/og.png`;
   return (
     <div
       style={{
@@ -57,13 +57,6 @@ export default function OG(
         />
           
       </div>
-      
-      {/* biome-ignore lint/a11y/useAltText: <explanation> */}
-      <img
-        src={`${basePath}opengraph/logo-badge.png`}
-        style={{ position: "absolute", bottom: "0", right: "0", zIndex: 100 }}
-        width="146px"
-      />
     </div>
   );
 }
