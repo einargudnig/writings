@@ -1,8 +1,10 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
+import { getCollection } from "astro:content";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { tags } from "../../utils/blogTags";
 import PostTag from '../components/blog/PostTag.astro';
+import RelTime from "../components/blog/RelTime.astro";
 
 
 export async function getStaticPaths() {
@@ -17,24 +19,69 @@ export async function getStaticPaths() {
   });
 }
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const {tag} = Astro.props;
+const { tag } = Astro.props;
+
+// Retrieve blog posts and sort by publish date
+const blogPosts = await getCollection("blog");
+blogPosts.sort((a, b) => {
+  return new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime();
+});
+
+// Hold filtered blog posts
+let blogPostResults: typeof blogPosts = blogPosts;
+
+// Filter blog posts by tag
+if (tag) {
+  blogPostResults = blogPosts.filter((post) => {
+    return post.data.tags.includes(tag);
+  });
+}
 
 ---
 <BaseLayout pageTitle={tag}>
   <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
-		<div class="flex items-center justify-between">
+    <div class="flex items-center justify-between">
 			<div class="w-full">
         <div class="flex gap-2 mb-6">
-          <p class="text-3xl">Posts tagged with:</p> <p class="text-3xl italic">{tag}</p>
+          <p class="text-2xl">Posts tagged with:</p> <p class="text-2xl italic">{tag}</p>
         </div>
-        <div class="w-full">
-        {
-          tags.map((t) => {
-            return <PostTag tag={t} />;
-          })
-        }
+        <div class="w-full mt-10">
+          <ul>
+            {blogPostResults.map((post) => 
+              <li class="flex flex-col space-y-1 mb-4 rounded-md">
+                <a href={`/blog/${post.slug}`}>
+                  <div class="w-full flex flex-row justify-between items-center">
+                    <div class="flex w-full items-center justify-items-start">
+                      <p class="text-lg mr-2">{post.data.title}</p>
+                      <div class="flex gap-1 items-center">
+                        {post.data.tags?.map((tag) => { 
+                          return <span class={`rounded-full flex flex-row items-center px-1 ring-1 ring-neutral-600`}><span class="px-1 font-mono text-xs text-neutral-600 tracking-tighter">{tag}</span></span>
+                        })}
+                      </div>
+                    </div>
+                    <div class="w-1/3 flex justify-end">
+                      <p class="font-mono text-sm text-neutral-500 tracking-tighter">
+                        <RelTime datetime={post.data.publishDate.toDateString()} />
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            )}
+          </ul>
         </div>
+      
+      <div class="mt-8 mb-4">
+        <p class="text-2xl mb-3 text-neutral-400">Tags</p>
+        <div class="flex flex-wrap gap-1 justify-start md:justify-center overflow-auto py-1 space-x-2 my-2">
+					{tags.map((tag) => {
+						return (
+							<PostTag tag={tag} />
+						);
+					})}
+				</div>
       </div>
+    </div>
     </div>
   </section>        
 </BaseLayout>

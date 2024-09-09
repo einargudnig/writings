@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets"
+import avatar from "../../../images/avatar.jpeg"
+import InlineLink from "./InlineLink.astro"
+---
+
+  <div class="flex justify-between">
+    <div>
+      <span>
+        <InlineLink href="https://einargudni.com">Einar Gudni Gudjonsson</InlineLink>
+      </span>
+      <div>
+        <span>
+          <InlineLink href="https://github.com/einargudnig">git</InlineLink>
+        </span>
+        <span>
+          <InlineLink href="https://craft.einargudni.com">craft</InlineLink>
+        </span>
+        <span>
+          <InlineLink href="https://learning.einargudni.com">learning</InlineLink>
+        </span>
+      </div>
+      
+    </div>
+    <div>
+      <Image
+        alt={`author image`}
+        src={avatar}
+        width={80}
+        height={80}
+        class="rounded-full grayscale"
+      />
+    </div>
+  </div>

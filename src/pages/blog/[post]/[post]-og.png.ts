@@ -15,8 +15,7 @@ export async function getStaticPaths() {
         post: post.slug,
       },
       props: {
-        title: post.data.title,
-        heroImage: postData?.heroImage.replace("../../images/blog/", ""),
+        title: post.data.title
       },
     };
   });
@@ -25,8 +24,9 @@ export async function getStaticPaths() {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export const GET: APIRoute = async function get({ props }) {
-  const { title, heroImage } = props as Props;
-  const png = await PNG(OG(title, heroImage));
+  const ogImage = "../../../images/opengraph/og.png"
+  const { title } = props as Props;
+  const png = await PNG(OG(title, ogImage));
   return new Response(png, {
     headers: {
       "Content-Type": "image/png",

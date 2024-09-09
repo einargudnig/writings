@@ -9,16 +9,16 @@ export async function SVG(component: JSX.Element) {
     height: 630,
     fonts: [
       {
-        name: "Inter",
+        name: "Geist",
         data: await fs.readFile(
-          "./src/images/opengraph/fonts/Inter-Regular.ttf",
+          "./src/images/opengraph/fonts/Geist-Regular.ttf",
         ),
         weight: 400,
       },
       {
-        name: "Inter",
+        name: "Geist",
         data: await fs.readFile(
-          "./src/images/opengraph/fonts/Inter-ExtraBold.ttf",
+          "./src/images/opengraph/fonts/Geist-Bold.ttf",
         ),
         weight: 800,
       },

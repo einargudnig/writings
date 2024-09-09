@@ -8,7 +8,8 @@ export const tags = [
   "raycast",
   "software",
   "learning",
-  "travel"
+  "travel",
+  "mobile"
 ] as const;
 
 export type TagItem = {
@@ -51,5 +52,8 @@ export const tagMap: TagMap = {
   },
   travel: {
     href: "/blog/tags/travel",
+  },
+  mobile: {
+    href: "/blog/tags/mobile",
   },
 };

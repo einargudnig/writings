@@ -19,6 +19,7 @@ const blogCollection = defineCollection({
         .string()
         .transform((str) => new Date(str))
         .optional(),
+      draft: z.boolean(),
       tags: z.array(
         z.string().refine((tag) => tags.includes(tag as ValidTags), {
           message:

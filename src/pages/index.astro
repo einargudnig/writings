@@ -4,12 +4,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PostTag from "../pages/components/blog/PostTag.astro";
 import type { ValidTags } from "../utils/blogTags";
 import { tags } from "../utils/blogTags";
+import PostList from "./components/blog/PostList.astro";
 	
 type Props = {
   tag?: ValidTags
   limit?: number
+	draft?: boolean
 }
-const { tag, limit } = Astro.props
+const { tag, limit, draft } = Astro.props
 
 // Retrieve blog posts and sort by publish date
 const blogPosts = await getCollection("blog");
@@ -27,6 +29,13 @@ if (tag) {
   });
 }
 
+// Filter drafts
+// if (draft) {
+// 		blogPostResults = blogPosts.filter((post) => {
+// 			return post.data.draft 
+// 		})
+// 	};
+
 // Filter blog posts by limit
 if (limit) {
   blogPostResults = blogPostResults.slice(0, limit);
@@ -42,17 +51,9 @@ const pageTitle = "writings"
 
 				<p class="text-gray-500/90 mb-6 mt-2 text-lg">A collection of thoughts, ideas, and experiences.</p>
 				
-				<div>
-					<div class="flex flex-wrap gap-1 justify-start md:justify-center overflow-auto py-1 space-x-2 my-2">
-						{tags.map((tag) => {
-							return (
-								<PostTag tag={tag} />
-							);
-						})}
-					</div>
-				</div>
+				
 				<div class="w-full mt-10">
-					<ul>
+					<!-- <ul>
     				{blogPostResults.map((post) => 
 							<li class="flex flex-col space-y-1 mb-4 px-2 rounded-md">
 								<a href={`/blog/${post.slug}`}>
@@ -68,7 +69,19 @@ const pageTitle = "writings"
 								</a>
 							</li>
 							)}
-  				</ul>
+  				</ul> -->
+					<PostList />
+				</div>
+
+				<div class="mt-20 mb-6">
+					<p class="text-2xl mb-3 text-neutral-400">Tags</p>
+					<div class="flex flex-wrap gap-1 justify-start md:justify-center overflow-auto py-1 space-x-2 my-2">
+						{tags.map((tag) => {
+							return (
+								<PostTag tag={tag} />
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</div>

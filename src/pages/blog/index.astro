@@ -16,20 +16,20 @@ blogPosts.sort((a, b) => {
 ---
 
 <BaseLayout >
-  <main class="mt-20">
-    <header>
-      <div class="flex flex-row justify-start md:justify-center py-1 space-x-2 my-2">
-          {
-            tags.map((tag) => {
-              return (
-                <div class="grid justify-center gap-1">
-                <PostTag tag={tag} />
-                </div>
-              );
-            })
-          }
-        </div>
-    </header>
+  <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
+		
+    <div>
+			
+			<div class="flex flex-wrap gap-1 justify-start md:justify-center overflow-auto py-1 space-x-2 my-2">
+				{tags.map((tag) => {
+					return (
+						<PostTag tag={tag} />
+						
+					);
+				})}
+			</div>
+		</div>
+    
     <PostList />
-  </main>
+  </section>
 </BaseLayout>
