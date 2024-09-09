@@ -24,36 +24,36 @@ type TagMap = {
 
 export const tagMap: TagMap = {
   coffee: {
-    href: "/blog/tags/coffee",
+    href: "/tags/coffee",
   },
   frontend: {
-    href: "/blog/tags/frontend",
+    href: "/tags/frontend",
   },
   backend: {
-    href: "/blog/tags/backend",
+    href: "/tags/backend",
   },
   systems: {
-    href: "/blog/tags/systems",
+    href: "/tags/systems",
   },
   hobby: {
-    href: "/blog/tags/hobby",
+    href: "/tags/hobby",
   },
   typescript: {
-    href: "/blog/tags/typescript",
+    href: "/tags/typescript",
   },
   raycast: {
-    href: "/blog/tags/raycast",
+    href: "/tags/raycast",
   },
   software: {
-    href: "/blog/tags/software",
+    href: "/tags/software",
   },
   learning: {
-    href: "/blog/tags/learning",
+    href: "/tags/learning",
   },
   travel: {
-    href: "/blog/tags/travel",
+    href: "/tags/travel",
   },
   mobile: {
-    href: "/blog/tags/mobile",
+    href: "/tags/mobile",
   },
 };

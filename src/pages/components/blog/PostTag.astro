@@ -9,5 +9,5 @@ type Props = {
 const { tag } = Astro.props;
 ---
 
-<a href={new URL(tagMap[tag].href, Astro.site)} class={`rounded-full flex flex-row items-center px-1 ring-1 ring-neutral-400`}><span class="px-1 font-mono text-xs text-neutral-400 tracking-tighter">{tag}</span></a>
+<a href={`../..${tagMap[tag].href}`} class={`rounded-full flex flex-row items-center px-1 ring-1 ring-neutral-400`}><span class="px-1 font-mono text-xs text-neutral-400 tracking-tighter">{tag}</span></a>
 <!-- <a href={`localhost:4321${tagMap[tag].href}`} class={`rounded-full flex flex-row items-center px-2 ring-1 ring-slate-500 text-smoke-300`}><span class="px-1">{tag}</span></a> -->

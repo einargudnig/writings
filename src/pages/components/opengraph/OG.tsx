@@ -49,12 +49,12 @@ export default function OG(
           margin: "2.5rem",
         }}
       >
-        {/* biome-ignore lint/a11y/useAltText: <explanation> */}
-        <img
+        
+        {/* <img
           src={`${basePath}blog/${heroImageURL}`}
             width="100%"
             height="100%"
-        />
+        /> */}
           
       </div>
     </div>

@@ -2,14 +2,14 @@ import type { APIRoute, InferGetStaticPropsType } from "astro";
 import { getCollection } from "astro:content";
 import matter from "gray-matter";
 import fs from "node:fs/promises";
-import { PNG } from "../../components/og/create-image";
-import OG from "../../components/og/og";
+import OG from "../../components/opengraph/OG";
+import { PNG } from "../../components/opengraph/createImage";
 
 export async function getStaticPaths() {
   const blog = await getCollection("blog");
   const blogData = await getBlogFrontmatterCollection();
   return blog.map((post) => {
-    const postData = blogData.find((data) => data.title === post.data.title);
+    
     return {
       params: {
         post: post.slug,
