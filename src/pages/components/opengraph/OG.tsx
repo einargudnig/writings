@@ -12,51 +12,31 @@ export default function OG(
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
         height: "100%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "center",
         backgroundImage: `url(${backgroundImageURL})`,
-        backgroundSize: "cover",
-        backgroundPosition: "left",
-        backgroundRepeat: "no-repeat",
-        alignItems: "center",
-        position: "relative",
       }}
     >
       <h1
         style={{
+          marginLeft: 190,
+          marginRight: 190,
           display: "flex",
-          flexDirection: "column",
-          flex: "1",
-          padding: "2rem 4rem",
-          fontSize: "3rem",
-          textOverflow: "ellipsis",
-          overflow: "hidden",
+          fontSize: 130,
           fontWeight: "bold",
           color: "white",
           fontFamily: "Geist",
-          wordBreak: "break-word",
+          whiteSpace: "pre-wrap",
+          lineHeight: '120px',
+          letterSpacing: '-0.05em',
         }}
       >
         {title}
       </h1>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: "1",
-          margin: "2.5rem",
-        }}
-      >
-        
-        {/* <img
-          src={`${basePath}blog/${heroImageURL}`}
-            width="100%"
-            height="100%"
-        /> */}
-          
-      </div>
     </div>
   );
 }

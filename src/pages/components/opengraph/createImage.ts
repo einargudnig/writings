@@ -5,8 +5,8 @@ import sharp from "sharp";
 
 export async function SVG(component: JSX.Element) {
   return await satori(component, {
-    width: 1200,
-    height: 630,
+    width: 1920,
+		height: 1080,
     fonts: [
       {
         name: "Geist",
