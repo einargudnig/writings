@@ -17,10 +17,12 @@ export async function getStaticPaths() {
   })
 }
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
-  const { tag } = Astro.props 
+const { tag } = Astro.props 
+
+const title = "Blog Tags";
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <main>
     <header>
       <div

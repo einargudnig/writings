@@ -3,7 +3,7 @@ import Author from "src/pages/components/blog/Author.astro";
 import BaseLayout from "./BaseLayout.astro";
 const { title, tags } = Astro.props;
 ---
-<BaseLayout pageTitle={title}>
+<BaseLayout title={title}>
 <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
     <div>
       <article class="prose max-w-[650px]">

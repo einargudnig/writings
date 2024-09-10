@@ -13,9 +13,11 @@ blogPosts.sort((a, b) => {
 		new Date(a.data.publishDate).getTime()
 	);
 })
+
+const pageTitle = "writings"
 ---
 
-<BaseLayout >
+<BaseLayout title={pageTitle}>
   <section class="mx-auto w-full max-w-2xl space-y-8 print:space-y-6">
 		
     <div>
@@ -24,7 +26,6 @@ blogPosts.sort((a, b) => {
 				{tags.map((tag) => {
 					return (
 						<PostTag tag={tag} />
-						
 					);
 				})}
 			</div>
