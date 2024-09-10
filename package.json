@@ -33,6 +33,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.2",
     "@tailwindcss/typography": "^0.5.13",
+    "@types/date-fns": "^2.6.0",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "kill-port": "^2.0.1",

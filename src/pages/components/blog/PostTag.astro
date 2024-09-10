@@ -5,9 +5,27 @@ type Props = {
   tag: ValidTags;
 }
 
-
 const { tag } = Astro.props;
+
+let tagInfo = tagMap[tag];
+console.log(`Tag: ${tag}, Tag Info:`, tagInfo);
+
+// if (!tagInfo) {
+//   console.warn(`No entry found in tagMap for tag: ${tag}`);
+//   throw new Error(`No entry found in tagMap for tag: ${tag}`);
+// }
+
+if (!tagInfo) {
+  console.warn(`No entry found in tagMap for tag: ${tag}`);
+  tagInfo = {
+    href: '/tags/unknown',
+  };
+}
+
+
+const link = `../..${tagInfo.href}`;
+console.log('link', link);
 ---
 
-<a href={`../..${tagMap[tag].href}`} class={`rounded-full flex flex-row items-center px-1 ring-1 ring-neutral-400`}><span class="px-1 font-mono text-xs text-neutral-400 tracking-tighter">{tag}</span></a>
-<!-- <a href={`localhost:4321${tagMap[tag].href}`} class={`rounded-full flex flex-row items-center px-2 ring-1 ring-slate-500 text-smoke-300`}><span class="px-1">{tag}</span></a> -->
+
+<a href={link} class={`rounded-full flex flex-row items-center px-1 ring-1 ring-neutral-400`}><span class="px-1 font-mono text-xs text-neutral-400 tracking-tighter">{tag}</span></a>

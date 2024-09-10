@@ -5,8 +5,10 @@ type Props = {
   datetime: string
 }
 
-const {datetime} = Astro.props
-const relTime = formatDistanceToNow(new Date(datetime), { addSuffix: true });
+const { datetime } = Astro.props
+console.log('datetime:', datetime);
+// const relTime = formatDistanceToNow(new Date(datetime), { addSuffix: true });
+const relTime = datetime ? formatDistanceToNow(new Date(datetime), { addSuffix: true }) : 'Invalid date';
 
 ---
 
