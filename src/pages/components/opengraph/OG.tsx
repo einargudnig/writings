@@ -30,12 +30,12 @@ export default function OG(
           flexDirection: "column",
           flex: "1",
           padding: "2rem 4rem",
-          fontSize: "5rem",
+          fontSize: "3rem",
           textOverflow: "ellipsis",
           overflow: "hidden",
           fontWeight: "bold",
           color: "white",
-          fontFamily: "Inter",
+          fontFamily: "Geist",
           wordBreak: "break-word",
         }}
       >
