@@ -21,11 +21,14 @@ blogPosts.sort((a, b) => {
 let blogPostResults: typeof blogPosts = blogPosts;
 
 // only return non drafts
-if (!showDrafts) {
-  blogPostResults.filter((post) => {
-    post.data.draft === false
-  })
-}
+// if (!showDrafts) {
+//   blogPostResults.filter((post) => {
+//     post.data.draft === false
+//   })
+
+// }
+// Get the current date
+const currentDate = new Date();
 
 // Filter blog posts by tag
 if (tag) {
@@ -39,11 +42,15 @@ if (limit) {
   blogPostResults = blogPostResults.slice(0, limit);
 }
 
+
+// Filter out posts with publish dates in the future
+const filteredPosts = blogPostResults.filter(post => new Date(post.data.publishDate) <= currentDate);
+
 ---
 
 <div class="w-full mt-10">
 	<ul>
-  {blogPostResults.map((post) => 
+  {filteredPosts.map((post) => 
 		<li class="flex flex-col space-y-1 mb-4 rounded-md">
 		  <a href={`/blog/${post.slug}`}>
         <div class="w-full flex flex-row justify-between items-center">
