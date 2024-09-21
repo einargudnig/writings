@@ -7,6 +7,7 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), mdx()],
+   output: 'hybrid', // or 'server'
   site: "https://writing.einargudni.com",
   adapter: vercel({
     webAnalytics: {
