@@ -56,14 +56,14 @@ const filteredPosts = blogPostResults.filter(post => new Date(post.data.publishD
         <div class="w-full flex flex-row justify-between items-center">
           <div class="flex w-full items-center justify-items-start">
             <p class="text-lg mr-2">{post.data.title}</p>
-            <div class="flex gap-1 items-center">
+            <div class="md:flex gap-1 items-center hidden">
               {post.data.tags?.map((tag) => { 
                 return <span class={`rounded-full flex flex-row items-center px-1 ring-1 ring-neutral-600`}><span class="px-1 font-mono text-xs text-neutral-600 tracking-tighter">{tag}</span></span>
               })}
             </div>
           </div>
           <div class="w-1/3 flex justify-end">
-            <p class="font-mono text-sm text-neutral-500 tracking-tighter">
+            <p class="font-mono text-sm text-neutral-500 tracking-tighter text-end">
               <RelTime datetime={post.data.publishDate.toDateString()} />
             </p>
           </div>
