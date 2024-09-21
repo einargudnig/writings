@@ -29,7 +29,12 @@ const { Content } = await post.render();
   <article>
     <div class="mx-auto card w-full max-w-screen-lg">
       <div>
-        <div class="flex justify-between items-center">
+        <div class="flex justify-start md:hidden">
+          <a href="/" class="flex items-center mb-4 ml-2 underline">
+            back home
+          </a>
+        </div>
+        <div class="flex justify-between items-center mx-2 md:mx-0">
           <h1 class="font-bold text-3xl font-serif max-w-[650px]">
             {post.data.title}
           </h1>
@@ -38,13 +43,13 @@ const { Content } = await post.render();
           </div>  
         </div>
       
-      <div class="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm max-w-[650px]">
+      <div class="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm max-w-[650px] mx-2 md:mx-0">
 				<div class="bg-neutral-800 rounded-md px-2 py-1 tracking-tighter text-white">
           <span>{timeToRead(post.body)}m read</span>
 				</div>
 				<div class="h-[0.2em] bg-neutral-800 mx-2" />
 			</div>
-        <div class="prose max-w-[650px]">
+        <div class="prose max-w-[650px] mx-2 md:mx-0">
           <Content />
         </div>
       </div>

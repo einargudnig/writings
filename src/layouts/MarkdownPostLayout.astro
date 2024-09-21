@@ -11,8 +11,8 @@ const { title, tags } = Astro.props;
       </article>
 
 
-      <div class="flex justify-between items-center mt-12">
-        <div class="flex gap-2">
+      <div class="flex justify-between items-center mt-12 mb-4 md:mb-0">
+        <div class="flex flex-col md:flex-row gap-2 ml-4 md:ml-0">
           {tags.map((tag: string) => (
             <p class="rounded-full flex flex-row items-center h-8 px-1 ring-1 ring-neutral-400"><a class="px-1 font-mono text-xs text-neutral-400 tracking-tighter" href={`/tags/${tag}`}>{tag}</a></p>
           ))}
