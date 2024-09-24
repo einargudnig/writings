@@ -9,7 +9,8 @@ export const tags = [
   "software",
   "learning",
   "travel",
-  "mobile"
+  "mobile",
+  "dx"
 ] as const;
 
 export type TagItem = {
@@ -55,5 +56,8 @@ export const tagMap: TagMap = {
   },
   mobile: {
     href: "/tags/mobile",
+  },
+  dx: {
+    href: "/tags/dx",
   },
 };

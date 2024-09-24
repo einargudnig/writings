@@ -6,7 +6,7 @@ type Props = {
 }
 
 const { datetime } = Astro.props
-console.log('datetime:', datetime);
+// console.log('datetime:', datetime);
 // const relTime = formatDistanceToNow(new Date(datetime), { addSuffix: true });
 const relTime = datetime ? formatDistanceToNow(new Date(datetime), { addSuffix: true }) : 'Invalid date';
 
