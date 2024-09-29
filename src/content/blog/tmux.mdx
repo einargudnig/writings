@@ -6,9 +6,11 @@ author: 'Einar Gudni'
 draft: false
 tags: ['learning']
 ---
+import { Image } from "astro:assets"
 import Draft from "../../pages/components/blog/SubHeading.astro"
 import SubHeading from "../../pages/components/blog/SubHeading.astro"
 import InlineLink from "../../pages/components/blog/InlineLink.astro"
+import tmuxGif from "../../images/tmux/tmux.gif"
 
 <Draft />
 
@@ -21,7 +23,7 @@ tmux is a terminal multiplexer. It allows multiple termnial sessions to be acces
 </p>
 
 <p class="mt-2">
-Concpetually it's pretty simple. You can have all your terminal work done in a single 'window' and instead of having million tabs open in your terminal you can scope your tasks to sessions. For example you could have one session for all of your work tasks, another session for your personal projects, etc. 
+Conceptually it's pretty simple. You can have all your terminal work done in a single 'window' and instead of having million tabs open in your terminal you can scope your tasks to sessions. For example you could have one session for all of your work tasks, another session for your personal projects, etc.
 </p>
 
 <p class="mt-2">
@@ -104,10 +106,18 @@ Here I can have only one terminal window, I used the opportunity to try out a ne
 </p>
 
 <p clas="mt-2">
-I can easily switch between sessions and in the sessions I have opened tabs for the proejcts I need I can easily context switch but still be in the scope I want to.
+I can easily switch between sessions and in the sessions I have opened tabs for the projects I need I can easily context switch but still be in the scope I want to.
 </p>
 
-<p class="mt-2">
+<Image
+	alt={'tmux gif'}
+	src={tmuxGif}
+	width={2084 / 2}
+	height={802 / 2}
+	class="my-4 rounded-md"
+/>
+
+<p class="mt-2 font-semibold">
 Here is a small GIF of my tmux 'setup'. I have the three session named personal, maul, and gigover. Each of these sessions has the window that I most use.
 </p>
 
