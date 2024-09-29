@@ -6,7 +6,10 @@ author: 'Einar Gudni'
 draft: false
 tags: ['learning']
 ---
+import Draft from "../../pages/components/blog/SubHeading.astro"
 import SubHeading from "../../pages/components/blog/SubHeading.astro"
+
+<Draft />
 
 <SubHeading>
   What is tmux?
@@ -19,52 +22,95 @@ Terminal multiplexer
   Why do I use tmux?
 </SubHeading>
 
-It fits my needs and makes my life less complicated.
-I have couple of projects. Who doesn't.
+<div class="mt-2">
 
-- Day time work
-  - couple of different projects here:
-  - website for foodies to order
-  - website for kitchens to recieve orders
-  - backend to connect the stuff
-  - ad-hoc stuff
-  - + more
-- Contract work
-  - gigover
-    - landing page
-    - web app
-    - mobile app
-- Personal projects
-  - einargudni.com
-  - writing.einargudni.com
-  - craft.einargudni.com
-  - team-tally
-  - ??
+<p class="mt-2">
+  It fits my needs and makes my life less complicated.
+  I have couple of projects. Who doesn't.
+</p>
 
+<ul class="mt-3">
+<li class="font-semibold">- Day time work</li>
+  <li class="ml-3">- couple of different projects here:</li>
+  <li class="ml-3">- website for foodies to order</li>
+  <li class="ml-3">- website for kitchens to recieve orders</li>
+  <li class="ml-3">- backend to connect the stuff</li>
+  <li class="ml-3">- ad-hoc stuff</li>
+  <li class="ml-3">- + more</li>
+<li class="font-semibold">- Contract work</li>
+  <li class="ml-3">- gigover</li>
+    <li class="ml-5">- landing page</li>
+    <li class="ml-5">- web app</li>
+    <li class="ml-5">- mobile app</li>
+<li class="font-semibold">- Personal projects</li>
+  <li class="ml-3">- einargudni.com</li>
+  <li class="ml-3">- writing.einargudni.com</li>
+  <li class="ml-3">- craft.einargudni.com</li>
+  <li class="ml-3">- team-tally</li>
+  <li class="ml-3">- ??</li>
+</ul>
+
+<p class="mt-2">
 For me personally I find it nice to have me terminal open in each of these proects. So, one tab for the website for foodies to order, one tab for the kitchen site, one tab for einargudni.com, etc, etc.
+</p>
 
+<p class="mt-2">
 I find this is nice so I can quickly jump between tabs and I know that I'm in the scope that I need.
+</p>
 
+<p class="mt-2">
 Each tab is usually split into two parts, one where I have the server running, if needed, and the other one to do various termnial things, open vs code in said project, pull/push git, etc.
+</p>
 
+<p class="mt-2">
 This became cumbersom when I had multiple tabs open in my Warp terminal, I tried to add colors and organize them in a nice way. It was fine. But I thought I could make it nicer.
+</p>
 
+<p class="mt-2">
 I tried to have three warp windows, one for each part (daytime work, contractor, personal projects).
+</p>
 
+<p class="mt-2">
 I stumbled upon tmux at some point on youtube and instantly figured that this could help me keep me subpar system, but make it easier to work with.
+</p>
 
+<p class="mt-2">
 Here I can have only one terminal window, I used the opportunity to try out a new terminal, went for wezterm, and use tmux to create three sessions. Each session than accessible in whatever terminal I want to use.
+</p>
 
+<p clas="mt-2">
 I can easily switch between sessions and in the sessions I have opened tabs for the proejcts I need I can easily context switch but still be in the scope I want to.
+</p>
 
-I have wanted to use neovim for quite some time now. Not for any particular reason other than it's so impressive to see the guys who are efficient at using it, but also the options of tinkering your own neovim setup is endless.
-
-I set up tmux config using neovim and later decided to build a neovim situp from this series: LINK and I think it helped me a lot.
-
-I got familiar with the vim key bindings, even added them to tmux, so when I'm using tmux I'm also exposed to the key bindings.
-
-It was such a joy setting up tmux and neovim, I will hopefully have started to use neovim as my main editor in a half year or so!
+</div>
 
 <SubHeading>
-  More tmux
+ tmux and neovim
 </SubHeading>
+
+<div class="mt-3">
+
+<p class="mt-2">
+I have wanted to use neovim for quite some time now. Not for any particular reason other than it's so impressive to see the guys who are efficient at using it, but also the options of tinkering your own neovim setup is endless.
+</p>
+
+<p class="mt-2">
+I set up tmux config using neovim and later decided to build a neovim situp from this series: LINK and I think it helped me a lot.
+</p>
+
+<p class="mt-2">
+I got familiar with the vim key bindings, even added them to tmux, so when I'm using tmux I'm also exposed to the key bindings.
+</p>
+
+<p class="mt-2">
+If you have no prior exposure to neovim I would say that this way, in building up your own configuration is a good one. You go from literally zero and over time you get to know various parts of the editor that suit you and not.
+</p>
+
+<p class="mt-2">
+I have used my setup in my personal projects for couple of weeks and I have noticed some improvments that I can make. I'll find some time in the near future and tinker more.
+</p>
+
+<p class="mt-2">
+It was such a joy setting up tmux and neovim, I will hopefully have started to use neovim as my main editor in a half year or so!
+</p>
+</div>
