@@ -8,6 +8,7 @@ tags: ['learning']
 ---
 import Draft from "../../pages/components/blog/SubHeading.astro"
 import SubHeading from "../../pages/components/blog/SubHeading.astro"
+import InlineLink from "../../pages/components/blog/InlineLink.astro"
 
 <Draft />
 
@@ -15,8 +16,32 @@ import SubHeading from "../../pages/components/blog/SubHeading.astro"
   What is tmux?
 </SubHeading>
 
-Terminal multiplexer
+<p class="mt-2">
+tmux is a terminal multiplexer. It allows multiple termnial sessions to be accessed simultaneously with a single window.
+</p>
 
+<p class="mt-2">
+Concpetually it's pretty simple. You can have all your terminal work done in a single 'window' and instead of having million tabs open in your terminal you can scope your tasks to sessions. For example you could have one session for all of your work tasks, another session for your personal projects, etc. 
+</p>
+
+<p class="mt-2">
+Or you can use tmux any other way you think it will help you.
+</p>
+
+<p class="mt-2">
+You can detach from a session and it will still live on your machine until you kill-it. So you can detach from a sesison with your development server running and it's still running when you re-attac hto the same session.
+</p>
+
+<p class="mt-2">
+There ary many people more knowledgable and better to tell you about tmux than me, here is some of the content that I used to get more familiar with it:
+</p>
+
+<ul class="mt-2">
+<li class="ml-3">- <InlineLink href="https://github.com/tmux/tmux/wiki">tmux wiki</InlineLink></li>
+<li class="ml-3">- <InlineLink href="https://hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">A quick and easy guide to tmux</InlineLink></li>
+<li class="ml-3">- <InlineLink href="https://www.youtube.com/watch?v=niuOc02Rvrc&t=394s">typecraft tmux for noobs</InlineLink></li>
+<li class="ml-5">- I used this 👆🏼👆🏼 series above to start setting up my tmux, I like it a lot.</li>
+</ul>
 
 <SubHeading>
   Why do I use tmux?
