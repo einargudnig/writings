@@ -6,9 +6,11 @@ author: 'Einar Gudni'
 draft: false
 tags: ["mobile", 'learning']
 ---
+import { Image } from "astro:assets"
 import Draft from "../../pages/components/blog/Draft.astro"
 import SubHeading from "../../pages/components/blog/SubHeading.astro"
 import InlineLink from "../../pages/components/blog/InlineLink.astro"
+import signIn from "../../images/team-tally/sign-in.png"
 
 <Draft />
 
@@ -16,7 +18,7 @@ import InlineLink from "../../pages/components/blog/InlineLink.astro"
   Cycle 1
 </SubHeading>
 
-<div class="mt-2">
+<div class="mt-2 realtive">
 
 <p class="mt-2">
   The first steps were to set up a project, git and all the ad-hoc stuff needed in the beginning.
@@ -71,6 +73,12 @@ import InlineLink from "../../pages/components/blog/InlineLink.astro"
   I am working on creating custom re-usable components to use in the app.
   Inputs and Buttons for example, this will help keeping consistency in the UI.
 </p>
+
+<p class="mt-2 font-semibold">
+  To the right you can see an image of the Sign in screen, it's very simple. But it works. The Sign up screen is the same, but it also has the
+  added step of needing to put in a verification code that Clerk sends you.
+</p>
+<Image alt="Sign in screen" src={signIn} width={300} height={600} class="absolute right-0 top-1/2" />
 
 <p class="mt-2">
   I want the Log-in and Sign-up to be as good as finished. So I can spend the next cycles focusing on other screens of the app.
