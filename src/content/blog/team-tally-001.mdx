@@ -47,11 +47,11 @@ import signIn from "../../images/team-tally/sign-in.png"
 </p>
 
 <p class="mt-2">
-  next up was to get authentication out of the way.
+  Next up was to get authentication out of the way.
 </p>
 
 <p class="mt-2">
-  Decided to use Clerk, read it's easy to use.
+  Decided to use <InlineLink href="https://clerk.com/">Clerk</InlineLink>, read it's easy to use.
   Set up Clerk acocunt, added package and started reading through their documentation.
   Seemed pretty easy to setup.
 </p>
@@ -74,11 +74,15 @@ import signIn from "../../images/team-tally/sign-in.png"
   Inputs and Buttons for example, this will help keeping consistency in the UI.
 </p>
 
-<p class="mt-2 font-semibold">
+<p class="mt-2 underline">
   To the right you can see an image of the Sign in screen, it's very simple. But it works. The Sign up screen is the same, but it also has the
   added step of needing to put in a verification code that Clerk sends you.
 </p>
 <Image alt="Sign in screen" src={signIn} width={300} height={600} class="absolute right-0 top-1/2" />
+
+<p class="mt-2">
+  And yes, there is a warning at the bottom. That's because I'm using development keys form Clerk while developing the app!
+</p>
 
 <p class="mt-2">
   I want the Log-in and Sign-up to be as good as finished. So I can spend the next cycles focusing on other screens of the app.
