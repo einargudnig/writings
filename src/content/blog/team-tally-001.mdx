@@ -1,108 +1,138 @@
 ---
-title: 'team tally #001'
-publishDate: '2024-10-06'
-description: 'My mobile app building experience'
-author: 'Einar Gudni'
+title: "team tally #001"
+publishDate: "2024-10-06"
+description: "My mobile app building experience"
+author: "Einar Gudni"
 draft: false
-tags: ["mobile", 'learning']
+tags: ["mobile", "learning"]
 ---
-import { Image } from "astro:assets"
-import SubHeading from "../../pages/components/blog/SubHeading.astro"
-import InlineLink from "../../pages/components/blog/InlineLink.astro"
-import signIn from "../../images/team-tally/sign-in.png"
 
-<SubHeading>
-  Cycle 1
-</SubHeading>
+import { Image } from "astro:assets";
+import SubHeading from "../../pages/components/blog/SubHeading.astro";
+import InlineLink from "../../pages/components/blog/InlineLink.astro";
+import signIn from "../../images/team-tally/sign-in.png";
+
+<SubHeading>Cycle 1</SubHeading>
 
 <div class="mt-2 realtive">
 
 <p class="mt-2">
-  The first steps were to set up a project, git and all the ad-hoc stuff needed in the beginning.
+  The first steps were to set up a project, git and all the ad-hoc stuff needed
+  in the beginning.
 </p>
 
 <p class="mt-2">
-  I set up a expo roject, spent some time reading the docs and decided to start using the <InlineLink href="https://github.com/expo/expo/tree/main/templates/expo-template-tabs">tabs template</InlineLink>
+  I set up a expo roject, spent some time reading the docs and decided to start
+  using the{" "}
+  <InlineLink href="https://github.com/expo/expo/tree/main/templates/expo-template-tabs">
+    tabs template
+  </InlineLink>
 </p>
 
 <p class="mt-2">
-  Connected the the expo project to my expo account.
-  Now I can use <InlineLink href="https://docs.expo.dev/eas/">EAS(Expo Application Service)</InlineLink> to help me build and deploy the app, more on that later.
+  Connected the the expo project to my expo account. Now I can use{" "}
+  <InlineLink href="https://docs.expo.dev/eas/">
+    EAS(Expo Application Service)
+  </InlineLink>{" "}
+  to help me build and deploy the app, more on that later.
 </p>
 
 <p class="mt-2">
-  Set up a color scheme, decided to use <InlineLink href="https://stephango.com/flexoki">Flexoki color scheme</InlineLink>
+  Set up a color scheme, decided to use{" "}
+  <InlineLink href="https://stephango.com/flexoki">
+    Flexoki color scheme
+  </InlineLink>
   This is an easy on the eyes, simple and nice looking color scheme.
 </p>
 
+<p class="mt-2">After I added the color scheme I started to add one new tab.</p>
+
 <p class="mt-2">
-  After I added the color scheme I started to add one new tab.
+  I think three main bottom navigation tabs will be enough. I might add some
+  modals or drawers, but these three sceens should be enough.
+</p>
+
+<p class="mt-2">Next up was to get authentication out of the way.</p>
+
+<p class="mt-2">
+  Decided to use <InlineLink href="https://clerk.com/">Clerk</InlineLink>, read
+  it's easy to use. Set up Clerk acocunt, added package and started reading
+  through their documentation. Seemed pretty easy to setup.
 </p>
 
 <p class="mt-2">
-  I think three main bottom navigation tabs will be enough. I might add some modals or drawers, but these three sceens should be enough.
+  Quite straight forward, had to mix it up with the expo app router to get the
+  correct flow. But now it's set up and I'm in the work of getting it to work.
 </p>
 
 <p class="mt-2">
-  Next up was to get authentication out of the way.
+  One drawback is that Clerk doesn't offer their drop-in components for expo,
+  but it's not like it's the end of the world. Easy to add some inputs and
+  buttons to handle the user inputs for authentication.
 </p>
 
 <p class="mt-2">
-  Decided to use <InlineLink href="https://clerk.com/">Clerk</InlineLink>, read it's easy to use.
-  Set up Clerk acocunt, added package and started reading through their documentation.
-  Seemed pretty easy to setup.
+  I still need to decide if this will be the user authentication flow of the
+  app.
 </p>
 
 <p class="mt-2">
-  Quite straight forward, had to mix it up with the expo app router to get the correct flow. But now it's set up and I'm in the work of getting it to work.
-</p>
-
-<p class="mt-2">
-  One drawback is that Clerk doesn't offer their drop-in components for expo, but it's not like it's the end of the world.
-  Easy to add some inputs and buttons to handle the user inputs for authentication.
-</p>
-
-<p class="mt-2">
-  I still need to decide if this will be the user authentication flow of the app.
-</p>
-
-<p class="mt-2">
-  I am working on creating custom re-usable components to use in the app.
-  Inputs and Buttons for example, this will help keeping consistency in the UI.
+  I am working on creating custom re-usable components to use in the app. Inputs
+  and Buttons for example, this will help keeping consistency in the UI.
 </p>
 
 <p class="mt-2 underline text-gray-400">
-  To the right you can see an image of the Sign in screen, it's very simple. But it works. The Sign up screen is the same, but it also has the
-  added step of needing to put in a verification code that Clerk sends you. 👉🏼
+  To the right you can see an image of the Sign in screen, it's very simple. But
+  it works. The Sign up screen is the same, but it also has the added step of
+  needing to put in a verification code that Clerk sends you. 👉🏼
 </p>
-<Image alt="Sign in screen" src={signIn} width={300} height={600} class="absolute right-0 top-1/2" />
+<Image
+  alt="Sign in screen"
+  src={signIn}
+  width={300}
+  height={600}
+  class="absolute right-0 top-1/2"
+/>
 
 <p class="mt-2">
-  And yes, there is a warning at the bottom. That's because I'm using development keys form Clerk while developing the app!
-</p>
-
-<p class="mt-2">
-  I want the Log-in and Sign-up to be as good as finished. So I can spend the next cycles focusing on other screens of the app.
-</p>
-
-<p class="mt-2">
-  I might want to add another team login? That might be a simpler way to start, instead of needing to add the teams to the users and building a screen to connect those together
-</p>
-
-<p class="mt-2">
-  I have started to draft out a database schema, I'll spend some time in this upcoming cycle to improve it and add a database to the app.
+  And yes, there is a warning at the bottom. That's because I'm using
+  development keys form Clerk while developing the app!
 </p>
 
 <p class="mt-2">
-  I should make a logo, no need for it yet, but I have the colorscheme, I have some idea about how I want the logo to be: minimal and simple. I'll try to make it on my own, or get somehelp 🤠.
+  I want the Log-in and Sign-up to be as good as finished. So I can spend the
+  next cycles focusing on other screens of the app.
 </p>
 
 <p class="mt-2">
-  The last couple of days I spent building a droodown to use in the app, for that I needed a <InlineLink href="https://github.com/lawnstarter/react-native-picker-select?tab=readme-ov-file">third party package.</InlineLink>
+  I might want to add another team login? That might be a simpler way to start,
+  instead of needing to add the teams to the users and building a screen to
+  connect those together
 </p>
 
 <p class="mt-2">
-  Next cycle will start tomorrow. In the next cycle the biggest task is to build the database, connect it to the project and start reading from it and writing to it!
+  I have started to draft out a database schema, I'll spend some time in this
+  upcoming cycle to improve it and add a database to the app.
+</p>
+
+<p class="mt-2">
+  I should make a logo, no need for it yet, but I have the colorscheme, I have
+  some idea about how I want the logo to be: minimal and simple. I'll try to
+  make it on my own, or get somehelp 🤠.
+</p>
+
+<p class="mt-2">
+  The last couple of days I spent building a droodown to use in the app, for
+  that I needed a{" "}
+  <InlineLink href="https://github.com/lawnstarter/react-native-picker-select?tab=readme-ov-file">
+    third party package.
+  </InlineLink>
+</p>
+
+<p class="mt-2">
+  Next cycle will start tomorrow. In the next cycle the biggest task is to build
+  the database, connect it to the project and start reading from it and writing
+  to it!
 </p>
 
 </div>
