@@ -15,7 +15,7 @@ import Draft from "../../pages/components/blog/Draft.astro";
 <Draft />
 
 
-<Subheading>Cycle 2</Subheading>
+<SubHeading>Cycle 2</SubHeading>
 
 <div class="mt-2">
   <p class="mt-2">
@@ -32,6 +32,31 @@ import Draft from "../../pages/components/blog/Draft.astro";
 
   <p class="mt-2">
     I had some to think and decied to change the authentication flow.
+  </p>
+  
+  <p class="mt-2">
+    The reason to change it was to update the user experience. I want multiple users to be able to add fines for
+    a single team. I though I could just add a team login after the user logs in but that sounds tedious.
+  </p>
+
+  <p class="mt-2">
+    Instead I decided to just allow the user to create the team. This user can later
+    invite users to be a part of the team.
+  </p>
+
+  <p class="mt-2">
+    I think this is a better user experience and will allow for more flexibility.
+  </p>
+
+  <p class="mt-2">
+    I also decied to switch out Clerk for authentication. After all the setup 🤡
+    I am going to use Supabase for all the database stuff and figured it would be 
+    nice to use their authentication as well.
+  </p>
+
+  <p class="mt-2">
+    This cycle was mostly spent on improving the UI and update the authenitcation.
+  </p>
 </div>
 
 
