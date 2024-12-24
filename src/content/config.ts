@@ -12,7 +12,7 @@ const blogCollection = defineCollection({
         (desc) => desc.length >= 25 && desc.length <= 160,
         (desc) => ({
           message: `Description must be between 25 and 160 characters long! Currently ${desc.length} characters long.`,
-        }),
+        })
       ),
       publishDate: z.string().transform((str) => new Date(str)),
       updateDate: z
@@ -22,9 +22,10 @@ const blogCollection = defineCollection({
       draft: z.boolean(),
       tags: z.array(
         z.string().refine((tag) => tags.includes(tag as ValidTags), {
-          message:
-            `Invalid tag! Please choose from the following: ${tags.join(", ")}`,
-        }),
+          message: `Invalid tag! Please choose from the following: ${tags.join(
+            ", "
+          )}`,
+        })
       ),
     }),
 });
