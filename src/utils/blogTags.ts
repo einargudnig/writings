@@ -12,6 +12,8 @@ export const tags = [
   "mobile",
   "dx",
   "neovim",
+  "keyboard",
+  "review",
 ] as const;
 
 export type TagItem = {
@@ -63,5 +65,11 @@ export const tagMap: TagMap = {
   },
   neovim: {
     href: "/tags/neovim",
+  },
+  keyboard: {
+    href: "/tags/keyboard",
+  },
+  review: {
+    href: "/tags/review",
   },
 };
