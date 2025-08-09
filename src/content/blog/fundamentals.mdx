@@ -1,0 +1,75 @@
+---
+title: 'fundamentals'
+publishDate: '2025-01-25'
+description: 'I have been sharpening my fundamentals'
+author: 'Einar Gudni'
+draft: true
+tags: ['learning']
+---
+import InlineLink from "../../pages/components/blog/InlineLink.astro"
+import SubHeading from "../../pages/components/blog/SubHeading.astro"
+
+<div class='mt-2'>
+
+  <p class="mt-2">I feel like my fundamentals are not as strong as they should be. So I have been putting some work towards improving them.</p>
+
+  <p class="mt-2">Here, I will dump all the things I have done. For the time being this will be dumped from my notes, I might edit it later for more clarity.</p>
+
+  Scope and 'closures'
+
+  <p class="mt-2">
+    I was sometimes thinking about upper and lower scope, but it's always outer and inner!
+
+    Every binding(1) has a scope and the scope is the part of the code where said binding is visible(accessible).
+
+    Bindings that are declared inside a function can only be referenced inside that function - local bindings.
+
+    Each scope can "look around", into the scope around it, the outer scope.
+
+
+  </p>
+
+
+  functions, higher order functions
+
+  <p class="mt-2">
+    When using higher-order functions we are passing functions as arguments to other functions or returning functions from functions.
+
+    When passing a function to another function we are passing the function definition, not the invocation! For example, when using .map we are passing the function definition to the map method.
+    We are not in control when the function is invoked, the method that we are passing the function to is in control.
+
+    Same applies when we are returning functions from other functions. We are not in control when the function is invoked.
+    
+  </p>
+
+
+  <p class="mt-2">
+    `return` is a keyword used to “stop” the execution of a function. No code after the return keyword will be ran.
+
+    The return keyword is also used to return a value from a function.
+    *If a function does not have the return keyword it returns `undefined`*
+    We can return objects and array
+    We can return functions and create *closures*
+    We can early return from a function by using conditional statements
+  </p>
+
+  <p class="mt-2">
+    `continue` is used in loops to skip the current iteration and proceed to the next one!
+
+    terminates current execution of the statement and continues in the iteration
+
+  </p>
+
+  data structures
+  object & arrays -> main methods
+  object & arrays utility methods
+
+  map & set
+
+  destructuring
+
+
+</div>
+
+
+
